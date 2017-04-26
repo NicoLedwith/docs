@@ -88,15 +88,25 @@ Complete the following steps to setup NativeScript on your macOS development mac
             </code></pre>
 
         1. Next, run the following command to set the ANDROID_HOME system environment variable:
-
+            
+            1. Check if the directory `/usr/local/opt/android-sdk` exists, if it does, run this command:
             <pre class="add-copy-button"><code class="language-terminal">export ANDROID_HOME=/usr/local/opt/android-sdk
             </code></pre>
+            1. If the above directory does NOT exist, check `~/Library/Android/sdk` to see if it exists. If it does, run this command:
+            <pre class="add-copy-button"><code class="language-terminal">export ANDROID_HOME=~/Libaray/Android/sdk
+            </code></pre>
+            
+            
 
             <blockquote><b>NOTE</b>: This is the directory that contains the <code>tools</code> and <code>platform-tools</code> directories.</blockquote>
 
         1. Select all packages for the Android 22 SDK, Android SDK Build-tools 23.0.3 or later, Local Maven repository for Support Libraries (under Extras) and any other SDKs that you want to install and click **Install**. You can alternatively use the following command, which will install all required tools:
 
            <pre class="add-copy-button"><code class="language-terminal">android update sdk --filter tools,platform-tools,android-25,build-tools-25.0.2,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui
+           </code></pre>
+           
+           **NOTE:** If you receive an error about `android` being depricated, you should use the command `sdkmanager` to install the packages. Run the command (this could take a few mintues, it will print `done` when done):
+           <pre class="add-copy-button"><code class="language-terminal">sdkmanager tools platform-tools "sources;android-25" "platforms;android-25" "build-tools;25.0.3" "extras;android;m2repository" "extras;google;m2repository"
            </code></pre>
 
 1. Setup Android Emulators (AVD) by following the article [here]({%slug android-emulators%})
